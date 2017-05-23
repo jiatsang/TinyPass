@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Chiats.TinyPass
+namespace Chiats.nTinyPass
 {
     public interface IColumnValueConvert
     {

@@ -1,17 +1,17 @@
-﻿using Chiats.TinyPass.Common;
+﻿using Chiats.nTinyPass.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
 using System.Text;
 
-namespace Chiats.TinyPass
+namespace Chiats.nTinyPass
 {
     /// <summary>
     /// TinyPass DTO 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public static class TinyPass<T>
+    public static class nTinyPass<T>
     {
         abstract class Pass
         {
@@ -102,7 +102,7 @@ namespace Chiats.TinyPass
             /// </summary>
             /// <param name="NewObject"></param>
             /// <returns></returns>
-            public int QueryFill(T NewObject, TinyPassMode TinyPassMode)
+            public int QueryFill(T NewObject, nTinyPassMode TinyPassMode)
             {
 
                 List<string> InvalidColumns = new List<string>();
@@ -149,7 +149,7 @@ namespace Chiats.TinyPass
                 if (p_count != null)
                     Update(p_count, NewObject, field_count);
 
-                if (InvalidColumns.Count > 0 && TinyPassMode == TinyPassMode.CheckAndException)
+                if (InvalidColumns.Count > 0 && TinyPassMode == nTinyPassMode.CheckAndException)
                 {
                     StringBuilder sb = new StringBuilder();
                     foreach (var InvalidColumn in InvalidColumns) sb.AppendFormat("{0},", InvalidColumn);
@@ -159,7 +159,7 @@ namespace Chiats.TinyPass
                 return field_count;
             }
 
-            public T Query(TinyPassMode TinyPassMode = TinyPassMode.NoCheck)
+            public T Query(nTinyPassMode TinyPassMode = nTinyPassMode.NoCheck)
             {
                 T NewObject = CreateNew();
                 QueryFill(NewObject, TinyPassMode);
@@ -332,7 +332,7 @@ namespace Chiats.TinyPass
             }
             return Dictionary;
         }
-        public static int QueryFill(T NewObject, IDataReader reader, TinyPassMode TinyPassMode)
+        public static int QueryFill(T NewObject, IDataReader reader, nTinyPassMode TinyPassMode)
         {
             return new PassForDataReader(reader).QueryFill(NewObject, TinyPassMode);
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Chiats.TinyPass
+namespace Chiats.nTinyPass
 {
     public class InvalidColumnNameException : CommonException
     {

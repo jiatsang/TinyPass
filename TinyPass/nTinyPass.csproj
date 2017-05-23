@@ -7,10 +7,11 @@
     <ProjectGuid>{51D3048D-245A-4FFE-B8AE-C68D53CF0876}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TinyPass</RootNamespace>
-    <AssemblyName>TinyPass</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Chiats.nTinyPass</RootNamespace>
+    <AssemblyName>nTinyPass</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,10 +47,10 @@
     <Compile Include="IColumnValueConvert.cs" />
     <Compile Include="IgnoreColumnPassAttribute.cs" />
     <Compile Include="InvalidColumnNameException.cs" />
-    <Compile Include="TinyPassExtensions.cs" />
-    <Compile Include="TinyPassMode.cs" />
+    <Compile Include="nTinyPassExtensions.cs" />
+    <Compile Include="nTinyPassMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TinyPass.cs" />
+    <Compile Include="nTinyPass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

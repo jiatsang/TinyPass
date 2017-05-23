@@ -10,16 +10,16 @@ using System.Data;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace Chiats.TinyPass
+namespace Chiats.nTinyPass
 {
 
-    public static class TinyPassExtensions
+    public static class nTinyPassExtensions
     {
-        public static bool QueryFill(this IDataReader reader, object obj, TinyPassMode TinyPassMode = TinyPassMode.CheckAndException )
+        public static bool QueryFill(this IDataReader reader, object obj, nTinyPassMode TinyPassMode = nTinyPassMode.CheckAndException )
         {
             if (obj != null)
             {
-                Type TinyPassGeneric = typeof(TinyPass<>);
+                Type TinyPassGeneric = typeof(nTinyPass<>);
                 Type TinyPassConstructed = TinyPassGeneric.MakeGenericType(obj.GetType());
                 MethodInfo GetMethodInfo = TinyPassConstructed.GetMethod("QueryFill");
                 try

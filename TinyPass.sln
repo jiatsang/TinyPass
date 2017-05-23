@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyPass", "TinyPass\TinyPass.csproj", "{51D3048D-245A-4FFE-B8AE-C68D53CF0876}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nTinyPass", "TinyPass\nTinyPass.csproj", "{51D3048D-245A-4FFE-B8AE-C68D53CF0876}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyPassTesting", "TinyPassTesting\TinyPassTesting.csproj", "{96E19FBA-58A8-4305-BAF4-8DFF0122F984}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nTinyPassTesting", "TinyPassTesting\nTinyPassTesting.csproj", "{96E19FBA-58A8-4305-BAF4-8DFF0122F984}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

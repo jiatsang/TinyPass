@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace Chiats.TinyPass.Common
+namespace Chiats.nTinyPass.Common
 {
     /// <summary>
     /// 系統相關的輔助程式庫.
@@ -148,7 +148,7 @@ namespace Chiats.TinyPass.Common
                 Type converionType = typeof(T);
 
                 // 檢查是否為 Nullable 的型別
-                if (converionType.GetTypeInfo().IsGenericType && converionType.GetGenericTypeDefinition() == typeof(Nullable<>))
+                if (converionType.IsGenericType && converionType.GetGenericTypeDefinition() == typeof(Nullable<>))
                     converionType = Nullable.GetUnderlyingType(converionType);
 
                 if (val.GetType() == converionType) return (T)val;
@@ -178,17 +178,17 @@ namespace Chiats.TinyPass.Common
         {
             // a thread-safe way to hold default instances created at run-time
             if (val == null || val == DBNull.Value)
-                return converionType.GetTypeInfo().IsValueType ? Activator.CreateInstance(converionType) : _default;
+                return converionType.IsValueType ? Activator.CreateInstance(converionType) : _default;
             if (val is string && (string)val == "")
             {
                 // 空字串的處理方法
                 if (converionType == typeof(string))
                     return val;
-                return converionType.GetTypeInfo().IsValueType ? Activator.CreateInstance(converionType) : _default;
+                return converionType.IsValueType ? Activator.CreateInstance(converionType) : _default;
             }
             else
             {
-                if (converionType.GetTypeInfo().IsGenericType && converionType.GetGenericTypeDefinition() == typeof(Nullable<>))
+                if (converionType.IsGenericType && converionType.GetGenericTypeDefinition() == typeof(Nullable<>))
                 {
                     converionType = Nullable.GetUnderlyingType(converionType);
                 }

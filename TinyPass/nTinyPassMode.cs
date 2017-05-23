@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Chiats.TinyPass
+namespace Chiats.nTinyPass
 {
-    public enum TinyPassMode
+    public enum nTinyPassMode
     {
         NoCheck,
         CheckAndException,

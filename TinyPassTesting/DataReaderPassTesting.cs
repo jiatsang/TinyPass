@@ -2,10 +2,10 @@
 using System.Data.SqlClient;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
-using Chiats.TinyPass;
+using Chiats.nTinyPass;
 using System.Diagnostics;
 
-namespace TinyPassTesting
+namespace Chiats.nTinyPassTesting
 {
     [TestClass]
     public class DataReaderPassTesting
@@ -43,7 +43,7 @@ namespace TinyPassTesting
                 SqlCommand cmd = new SqlCommand("select * from Categories", Connection);
                 Stopwatch s = new Stopwatch();
                 s.Start();
-                var Categories = TinyPass<CategoryEntry>.QueryAll(cmd.ExecuteReader());
+                var Categories = nTinyPass<CategoryEntry>.QueryAll(cmd.ExecuteReader());
                 s.Stop();
                 Debug.Print($"ElapsedMilliseconds : {s.ElapsedMilliseconds:#,##0}ms\r\n");
                 foreach (var category in Categories)
@@ -61,10 +61,6 @@ namespace TinyPassTesting
             {
                 Connection.Open();
                 SqlCommand cmd = new SqlCommand("select * from Categories", Connection);
-
-                Stopwatch s = new Stopwatch();
-                s.Start();
-
                 var category = new { CategoryID = 0, CategoryName = "" };
                 using (var dr = cmd.ExecuteReader())
                 {
@@ -76,9 +72,6 @@ namespace TinyPassTesting
                     else
                         Debug.Print("No Data Found");
                 }
-                s.Stop();
-                Debug.Print($"ElapsedMilliseconds : {s.ElapsedMilliseconds:#,##0}ms\r\n");
-
             }
         }
     }

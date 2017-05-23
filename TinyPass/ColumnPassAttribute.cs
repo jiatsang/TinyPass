@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Chiats.TinyPass
+namespace Chiats.nTinyPass
 {
     /// <summary>
     /// 指示該欄位為為填入相對資料的 Field or Property
