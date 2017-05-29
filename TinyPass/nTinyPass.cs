@@ -27,7 +27,7 @@ namespace Chiats.nTinyPass
             {
                 this.PassType = typeof(T);
                 this.PropertyInfos = PassType.GetProperties();
-                this.FieldInfos = PassType.GetFields(); 
+                this.FieldInfos = PassType.GetFields();
             }
 
             protected T CreateNew()
@@ -71,7 +71,7 @@ namespace Chiats.nTinyPass
                     // 因為 Anonymous Type PropertyInfo 是無法寫入變數內容.要改用 FieldInfo (<ID>i__Field)
 
                     string FieldName = string.Format("<{0}>i__Field", p.Name);
-                    var f = PassType.GetField(FieldName , BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Instance);
+                    var f = PassType.GetField(FieldName, BindingFlags.SetField | BindingFlags.NonPublic | BindingFlags.Instance);
                     if (f != null)
                     {
                         f.SetValue(NewObject, ObjectValue.ChangeTypeEx(f.FieldType));
@@ -233,10 +233,10 @@ namespace Chiats.nTinyPass
         {
             private DataTable table;
 
-            public PassForDataTable(DataTable table, int StartIndex)
+            public PassForDataTable(DataTable table, int StartIndex = 0)
             {
                 this.table = table;
-                this.RowIndex = StartIndex;
+                this.RowIndex = StartIndex - 1;
             }
 
             public override int GetColumnIndex(string ColumnName)
@@ -270,8 +270,7 @@ namespace Chiats.nTinyPass
 
             public override bool Next()
             {
-                RowIndex++;
-                return RowIndex < table.Rows.Count;
+                return ++RowIndex < table.Rows.Count;
             }
         }
 
